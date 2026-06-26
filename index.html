@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Millet Bhujiya — Mavika Naturals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --saffron:   #E8860A;
+      --saffron-lt:#FFF0D6;
+      --green:     #2D4A2B;
+      --green-lt:  #4A7A47;
+      --cream:     #F7F0E3;
+      --sand:      #EDE0C4;
+      --brown:     #5C3A1E;
+      --dark:      #1A1A0F;
+      --white:     #FFFDF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(247,240,227,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--sand);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 900;
+      color: var(--green); letter-spacing: 0.04em;
+    }
+    .nav-logo span { color: var(--saffron); }
+    nav ul { list-style: none; display: flex; gap: 32px; }
+    nav ul a { text-decoration: none; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown);
+      transition: color 0.2s; }
+    nav ul a:hover { color: var(--saffron); }
+    .nav-cta {
+      background: var(--green); color: var(--white) !important;
+      padding: 8px 20px; border-radius: 2px;
+    }
+    .nav-cta:hover { background: var(--saffron) !important; color: var(--white) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 48px 80px;
+      position: relative; overflow: hidden;
+      background: var(--green);
+    }
+
+    /* Millet grain pattern background */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(ellipse 3px 6px at 15% 20%, rgba(232,134,10,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 2px 5px at 35% 65%, rgba(232,134,10,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 4px 8px at 55% 30%, rgba(232,134,10,0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 3px 6px at 75% 70%, rgba(232,134,10,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 2px 5px at 90% 15%, rgba(232,134,10,0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 3px 6px at 20% 80%, rgba(232,134,10,0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 2px 4px at 60% 85%, rgba(232,134,10,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 4px 7px at 80% 45%, rgba(232,134,10,0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 2px 5px at 45% 10%, rgba(232,134,10,0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 3px 6px at 10% 50%, rgba(232,134,10,0.35) 0%, transparent 70%);
+      opacity: 0.6;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--saffron); font-weight: 700; margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 900; line-height: 1.0;
+      color: var(--white); margin-bottom: 28px;
+    }
+    .hero-title em { font-style: italic; color: var(--saffron); }
+    .hero-desc {
+      font-size: 1.05rem; line-height: 1.75; color: rgba(255,253,247,0.75);
+      font-weight: 300; max-width: 440px; margin-bottom: 40px;
+    }
+    .hero-badges {
+      display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px;
+    }
+    .badge {
+      padding: 6px 14px; border: 1px solid rgba(232,134,10,0.5);
+      border-radius: 999px; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--saffron);
+    }
+    .hero-btn {
+      display: inline-block; padding: 16px 40px;
+      background: var(--saffron); color: var(--white);
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 0.85rem; text-decoration: none; border-radius: 2px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(232,134,10,0.4);
+    }
+    .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,134,10,0.55); }
+
+    /* Bowl illustration */
+    .hero-visual {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .bowl-wrap {
+      position: relative; width: 340px; height: 340px;
+    }
+    .bowl-glow {
+      position: absolute; inset: -20px;
+      background: radial-gradient(circle, rgba(232,134,10,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity: 0.7; }
+      50%      { transform: scale(1.08); opacity: 1; }
+    }
+    .bowl-svg { width: 100%; height: 100%; }
+
+    /* ─── TORN EDGE DIVIDER ─── */
+    .torn {
+      width: 100%; overflow: hidden; line-height: 0;
+      background: var(--green);
+    }
+    .torn svg { display: block; width: 100%; }
+
+    /* ─── STORY STRIP ─── */
+    .story {
+      background: var(--white);
+      padding: 80px 48px;
+    }
+    .story-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start;
+    }
+    .story-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem; font-weight: 900;
+      color: var(--green); line-height: 1.1;
+    }
+    .story-label em { font-style: italic; color: var(--saffron); }
+    .story-text p {
+      font-size: 1.05rem; line-height: 1.85; color: #444;
+      font-weight: 300; margin-bottom: 20px;
+    }
+    .story-stats {
+      display: flex; gap: 40px; margin-top: 32px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; font-weight: 900; color: var(--saffron);
+      display: block; line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 0.75rem; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--brown); font-weight: 700;
+      margin-top: 6px; display: block;
+    }
+
+    /* ─── VARIANTS ─── */
+    .variants {
+      background: var(--cream);
+      padding: 80px 48px 100px;
+    }
+    .section-head {
+      max-width: 1200px; margin: 0 auto 56px;
+      display: flex; align-items: baseline; justify-content: space-between;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 900; color: var(--green);
+    }
+    .section-title em { font-style: italic; color: var(--saffron); }
+    .section-sub { font-size: 0.85rem; color: var(--brown); font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; }
+
+    .cards-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 4px; overflow: hidden;
+      border: 1.5px solid var(--sand);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      position: relative;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(45,74,43,0.15); }
+
+    .card-img {
+      height: 220px; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .card-img svg { width: 120px; height: 120px; }
+
+    .card-body { padding: 28px 28px 32px; }
+    .card-variant-tag {
+      display: inline-block;
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-weight: 700; padding: 4px 12px; border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--dark); margin-bottom: 10px; line-height: 1.2;
+    }
+    .card-desc { font-size: 0.9rem; color: #666; line-height: 1.65; margin-bottom: 20px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .tag {
+      font-size: 0.72rem; padding: 4px 10px;
+      border-radius: 2px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 20px; border-top: 1px solid var(--sand);
+    }
+    .card-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 900; color: var(--green);
+    }
+    .card-price span { font-size: 0.8rem; font-family: 'Lato', sans-serif;
+      font-weight: 400; color: #999; margin-left: 4px; }
+    .add-btn {
+      background: var(--green); color: var(--white);
+      border: none; padding: 10px 20px; border-radius: 2px;
+      font-family: 'Lato', sans-serif; font-size: 0.8rem;
+      font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .add-btn:hover { background: var(--saffron); }
+
+    /* Variant-specific colors */
+    /* Old Delhi Chatpata */
+    .card:nth-child(1) .card-img { background: linear-gradient(135deg, #FFF5E4 0%, #FFE4B5 100%); }
+    .card:nth-child(1) .card-variant-tag { background: #FFF0D6; color: var(--saffron); }
+    .card:nth-child(1) .tag { background: #FFF5E4; color: var(--brown); }
+
+    /* Himalayan Pudina */
+    .card:nth-child(2) .card-img { background: linear-gradient(135deg, #F0F7EE 0%, #C8E6C0 100%); }
+    .card:nth-child(2) .card-variant-tag { background: #E0F2DD; color: var(--green); }
+    .card:nth-child(2) .tag { background: #EBF5E9; color: var(--green-lt); }
+
+    /* Goan Peri Peri */
+    .card:nth-child(3) .card-img { background: linear-gradient(135deg, #FFF0F0 0%, #FFD6CC 100%); }
+    .card:nth-child(3) .card-variant-tag { background: #FFE5DF; color: #C0392B; }
+    .card:nth-child(3) .tag { background: #FFF0EE; color: #C0392B; }
+
+    /* Best seller ribbon */
+    .ribbon {
+      position: absolute; top: 16px; right: -28px;
+      background: var(--saffron); color: white;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 5px 36px;
+      transform: rotate(45deg); transform-origin: center;
+      box-shadow: 0 2px 8px rgba(232,134,10,0.4);
+    }
+
+    /* ─── TRUST BAR ─── */
+    .trust {
+      background: var(--green);
+      padding: 40px 48px;
+    }
+    .trust-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-around;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .trust-item { display: flex; align-items: center; gap: 14px; color: var(--white); }
+    .trust-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .trust-txt strong { display: block; font-size: 0.9rem; font-weight: 700; }
+    .trust-txt span { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark);
+      padding: 48px 48px 32px;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 900; color: var(--white);
+    }
+    .footer-logo span { color: var(--saffron); }
+    footer p { font-size: 0.8rem; }
+
+    /* ─── CART TOAST ─── */
+    .toast {
+      position: fixed; bottom: 32px; right: 32px; z-index: 999;
+      background: var(--green); color: var(--white);
+      padding: 14px 24px; border-radius: 4px;
+      font-size: 0.9rem; font-weight: 700;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+      transform: translateY(80px); opacity: 0;
+      transition: transform 0.3s, opacity 0.3s;
+      pointer-events: none;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      nav ul { display: none; }
+      .hero { padding: 100px 24px 60px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { display: none; }
+      .story { padding: 60px 24px; }
+      .story-inner { grid-template-columns: 1fr; gap: 28px; }
+      .variants { padding: 60px 24px 80px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .section-head { flex-direction: column; gap: 8px; }
+      .trust { padding: 32px 24px; }
+      footer { padding: 40px 24px 24px; }
+    }
+    .card-img {
+    width: 100%;
+    height: 230px; /* adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* or cover */
+    display: block;
+}
+
+.card-img svg {
+    width: 100%;
+    height: 100%;
+}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Mavika <span>Naturals</span></div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#variants">Products</a></li>
+    <li><a href="#">Our Story</a></li>
+    <li><a href="#variants" class="nav-cta">Shop Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">From our Raasoi to Yours</div>
+      <h1 class="hero-title">Millet<br><em>Bhujiya</em></h1>
+      <p class="hero-desc">Ancient grains, reimagined as your favourite snack. Every handful of our Millet Bhujiya is crispy, wholesome, and free of guilt — made the way your grandmother would have approved.</p>
+      <div class="hero-badges">
+        <span class="badge">Gluten Friendly</span>
+        <span class="badge">No Preservatives</span>
+        <span class="badge">Non-GMO</span>
+        <span class="badge">Rich in Fibre</span>
+      </div>
+      <a href="#variants" class="hero-btn">Explore Variants →</a>
+    </div>
+    <div class="hero-visual">
+      <div class="bowl-wrap">
+        <div class="bowl-glow"></div>
+        <svg class="bowl-svg" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bowl body -->
+          <ellipse cx="170" cy="200" rx="130" ry="50" fill="#3D6B3A" opacity="0.9"/>
+          <path d="M40 200 Q40 280 170 290 Q300 280 300 200 Z" fill="#2D4A2B"/>
+          <path d="M40 200 Q60 225 170 235 Q280 225 300 200 Q280 215 170 220 Q60 215 40 200Z" fill="#4A7A47" opacity="0.5"/>
+          <!-- Bhujiya pile -->
+          <g opacity="0.95">
+            <!-- Noodle strands -->
+            <path d="M100 185 Q115 175 130 185 Q145 195 160 185" stroke="#E8860A" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <path d="M115 178 Q130 168 145 178 Q160 188 175 178" stroke="#D4750A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M130 172 Q148 162 165 172 Q182 182 200 172" stroke="#E8860A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M145 165 Q165 155 182 165 Q200 175 215 165" stroke="#C96A08" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <path d="M155 175 Q175 163 193 175 Q210 187 228 175" stroke="#E8860A" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M120 190 Q138 180 155 190 Q172 200 188 190" stroke="#D4750A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M140 182 Q158 170 175 182 Q192 194 210 182" stroke="#E8860A" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M160 192 Q178 180 194 192 Q210 204 226 192" stroke="#C96A08" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M108 195 Q126 183 142 195 Q158 207 172 195" stroke="#E8860A" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M175 185 Q195 173 213 185 Q231 197 248 185" stroke="#D4750A" stroke-width="3" stroke-linecap="round" fill="none"/>
+          </g>
+          <!-- Bowl rim shine -->
+          <ellipse cx="170" cy="200" rx="130" ry="50" stroke="#4A7A47" stroke-width="2" fill="none"/>
+          <ellipse cx="140" cy="195" rx="30" ry="8" fill="white" opacity="0.08" transform="rotate(-10 140 195)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TORN EDGE -->
+<div class="torn">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,30 Q30,50 60,30 Q90,10 120,32 Q150,54 180,35 Q210,16 240,38 Q270,60 300,40 Q330,20 360,42 Q390,60 420,38 Q450,16 480,36 Q510,56 540,34 Q570,12 600,36 Q630,56 660,34 Q690,12 720,38 Q750,60 780,36 Q810,12 840,34 Q870,56 900,36 Q930,16 960,40 Q990,60 1020,38 Q1050,16 1080,40 Q1110,60 1140,36 Q1170,12 1200,38 Q1230,60 1260,36 Q1290,12 1320,38 Q1350,60 1380,34 Q1410,8 1440,32 L1440,0 Z" fill="#F7F0E3"/>
+  </svg>
+</div>
+
+<!-- STORY -->
+<section class="story">
+  <div class="story-inner">
+    <div>
+      <h2 class="story-label">Rooted<br>in <em>Grain,</em><br>Crafted<br>with Care</h2>
+    </div>
+    <div class="story-text">
+      <p>Mavika Naturals was born from a simple belief: your snack shelf deserves better. We source finger millet, foxtail millet, and pearl millet directly from small farmers across Karnataka and Rajasthan — grains that have nourished India for over 3,000 years.</p>
+      <p>Our Millet Bhujiya skips the maida and the additives. Every batch is slow-spiced, air-dried, and fried in cold-pressed groundnut oil. What you get is a snack that's actually good for you, and actually tastes like it too.</p>
+      <div class="story-stats">
+        <div class="stat-item">
+          <span class="stat-num">3×</span>
+          <span class="stat-lbl">More Fibre</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">0</span>
+          <span class="stat-lbl">Preservatives</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl">Natural Spices</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">48hr</span>
+          <span class="stat-lbl">Slow Process</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VARIANTS -->
+<section class="variants" id="variants">
+  <div class="section-head">
+    <h2 class="section-title">Choose Your <em>Crunch</em></h2>
+    <span class="section-sub">3 Variants · 100g Each</span>
+  </div>
+  <div class="cards-grid">
+
+    <!-- Variant 1: Old Delhi Chatpata -->
+    <div class="card">
+      <div class="card-img">
+        <img src="./images/old-delhi.jpeg"  alt="Old Delhi Chatpata"
+         loading="lazy">
+      
+      </div>
+      <div class="card-body">
+        <span class="card-variant-tag">Chatpata</span>
+        <h3 class="card-name">Old Delhi Chatpata</h3>
+        <p class="card-desc">The timeless taste of Old Delhi, reimagined with wholesome millets.Bold spices, authentic flavours, and a satisfying crunch in every bite..</p>
+        <div class="card-tags">
+          <span class="tag">85% Stone-Ground Millets</span>
+          <span class="tag">High Protein Snack</span>
+          <span class="tag">No Maida, No Palm Oil</span>
+		  <span class="tag">Made with Natural Ingredients</span>
+          <span class="tag">Inspired by Traditional Delhi Street Flavours</span>
+          <span class="tag">Perfect with Tea & Evening Snacking</span>
+
+        </div>
+        <div class="card-footer">
+          <div class="card-price">₹110 <span>/ 100g</span></div>
+          <button class="add-btn" onclick="addToCart('Old Delhi Chatpata')">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 2: Himalayan Pudina -->
+    <div class="card">
+      <div class="ribbon">Best Seller</div>
+      <div class="card-img">
+          <img src="./images/pudina.jpeg"  alt=" Himalayan Pudina"
+         loading="lazy">
+       
+      </div>
+      <div class="card-body">
+        <span class="card-variant-tag">Minty</span>
+        <h3 class="card-name">Himalayan Pudina</h3>
+        <p class="card-desc">A refreshing burst of Himalayan mint with the goodness of millets.Light, crisp, and flavourful — crafted for mindful everyday snacking.</p>
+        <div class="card-tags">
+          <span class="tag">85% Stone-Ground Millets</span>
+          <span class="tag">High Protein Snack</span>
+          <span class="tag">No Maida, No Palm Oil</span>
+		  <span class="tag">Fresh Pudina & Natural Spices</span>
+          <span class="tag">Clean, Refreshing Taste</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">₹110 <span>/ 100g</span></div>
+          <!-- <button class="add-btn" onclick="addToCart('Himalayan Pudina')">Add to Cart</button> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant 3: Goan Peri Peri -->
+    <div class="card">
+      <div class="card-img">
+             <img src="./images/peri-peri.jpeg"  alt=" Goan Peri Peri"
+         loading="lazy">
+     
+      </div>
+      <div class="card-body">
+        <span class="card-variant-tag">Fiery</span>
+        <h3 class="card-name">Goan Peri Peri</h3>
+        <p class="card-desc">A fiery Goan-inspired crunch for those who love bold flavours.Spicy, vibrant, and irresistibly crunchy with every handful.</p>
+        <div class="card-tags">
+          <span class="tag">85% Stone-Ground Millets</span>
+          <span class="tag">High Protein Snack</span>
+          <span class="tag">No Maida, No Palm Oil</span>
+		  <span class="tag">Bold Peri Peri Spice Blend</span>
+          <span class="tag">Perfect for Spice Lovers</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">₹110 <span>/ 100g</span></div>
+          <!-- <button class="add-btn" onclick="addToCart('Goan Peri Peri')">Add to Cart</button> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">🌾</div>
+      <div class="trust-txt">
+        <strong>Farm-Sourced Millets</strong>
+        <span>Direct from Karnataka & Rajasthan</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🧪</div>
+      <div class="trust-txt">
+        <strong>Lab Tested</strong>
+        <span>Every batch quality certified</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">📦</div>
+      <div class="trust-txt">
+        <strong>Free Shipping</strong>
+        <span>On orders above ₹499</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">💚</div>
+      <div class="trust-txt">
+        <strong>100% Natural</strong>
+        <span>No artificial colours or flavours</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Mavika <span>Naturals</span><br><small style="font-family:'Lato',sans-serif;font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.45);letter-spacing:0.05em;font-style:italic;">From our Raasoi to Yours</small></div>
+    <p>© 2025 Mavika Naturals. Made with love in India.</p>
+    <p>hello@mavikanaturals.in</p>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ Added to cart!</div>
+
+<script>
+  function addToCart(variant) {
+    const toast = document.getElementById('toast');
+    toast.textContent = '✓ ' + variant + ' added to cart!';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
